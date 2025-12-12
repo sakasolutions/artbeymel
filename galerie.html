@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop & Werke | ART By Mel</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="galerie.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/logos/logo.png" alt="Logo Art By Mel">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="galerie.html" class="active">Galerie</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header class="shop-header">
+        <h1>Verfügbare Unikate</h1>
+        <p class="subtitle">Handgemalt im Atelier</p>
+    </header>
+
+    <section class="shop-container">
+        <div class="shop-grid">
+            
+            <div class="shop-card">
+                <div class="card-image" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Silent Morning"
+                         data-full="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <div class="hover-indicator"><span class="plus">+</span></div>
+                </div>
+                <div class="card-info">
+                    <h3>Silent Morning</h3>
+                    <p class="details">80x100cm | Acryl</p>
+                    <div class="buy-block">
+                        <span class="price">450 €</span>
+                        <a href="#" class="btn-shop">Kaufen</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-card sold">
+                <div class="card-image" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Dusty Rose"
+                         data-full="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <div class="sold-overlay">Verkauft</div>
+                </div>
+                <div class="card-info">
+                    <h3>Dusty Rose</h3>
+                    <p class="details">60x80cm | Struktur</p>
+                    <div class="buy-block">
+                        <span class="price sold-price">Verkauft</span>
+                        <button class="btn-shop disabled" disabled>Weg</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-card">
+                <div class="card-image" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Golden Hour"
+                         data-full="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <div class="hover-indicator"><span class="plus">+</span></div>
+                </div>
+                <div class="card-info">
+                    <h3>Golden Hour</h3>
+                    <p class="details">100x120cm | Misch</p>
+                    <div class="buy-block">
+                        <span class="price">890 €</span>
+                         <a href="#" class="btn-shop">Kaufen</a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="shop-card">
+                <div class="card-image" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Ocean Breeze"
+                         data-full="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <div class="hover-indicator"><span class="plus">+</span></div>
+                </div>
+                <div class="card-info">
+                    <h3>Ocean Breeze</h3>
+                    <p class="details">50x70cm | Acryl</p>
+                    <div class="buy-block">
+                        <span class="price">320 €</span>
+                        <a href="#" class="btn-shop">Kaufen</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo footer-logo">
+                <img src="assets/logos/logo.png" alt="Logo Art By Mel" style="width: 80px; opacity: 0.7;">
+            </div>
+            <div class="socials">
+                <a href="#">Instagram</a>
+            </div>
+            <p class="copyright">&copy; 2025 Art By Mel.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script src="galerie.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+/* --- Header & Container --- */
+.shop-header {
+    padding: 60px 5% 30px 5%;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.shop-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.shop-container {
+    padding: 20px 5% 100px 5%;
+    background-color: var(--white);
+}
+
+/* --- DESKTOP GRID (3 Spalten Standard) --- */
+.shop-grid {
+    display: grid;
+    /* Desktop: Automatisch füllen, mindestens 300px breit pro Karte */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px; 
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Die Shop Karte (mit High-End Animation) --- */
+.shop-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    
+    /* Startzustand für Animation: Unsichtbar & leicht verschoben */
+    opacity: 0;
+    transform: translateY(40px) scale(0.98); 
+    
+    /* Die Magie: Butterweiche Animation beim Laden */
+    animation: premiumEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Definition der Bewegung */
+@keyframes premiumEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Automatisches Versetzen (Staggering) für den "Wellen-Effekt" */
+.shop-card:nth-child(1) { animation-delay: 0.1s; }
+.shop-card:nth-child(2) { animation-delay: 0.2s; }
+.shop-card:nth-child(3) { animation-delay: 0.3s; }
+.shop-card:nth-child(4) { animation-delay: 0.4s; }
+.shop-card:nth-child(5) { animation-delay: 0.5s; }
+.shop-card:nth-child(6) { animation-delay: 0.6s; }
+.shop-card:nth-child(7) { animation-delay: 0.7s; }
+.shop-card:nth-child(8) { animation-delay: 0.8s; }
+
+
+/* --- Bildbereich --- */
+.card-image {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    /* Erzwingt einheitliches Hochformat (4:5) */
+    aspect-ratio: 4 / 5; 
+    border-radius: 2px;
+    background-color: #f9f9f9; /* Platzhalterfarbe beim Laden */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Füllt das Format perfekt aus */
+    transition: transform 0.7s ease; /* Langsamer Zoom beim Hover */
+}
+
+.shop-card:hover .card-image img {
+    transform: scale(1.03);
+}
+
+/* Hover Effekt (Plus-Zeichen) */
+.hover-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hover-indicator .plus {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.shop-card:hover .hover-indicator {
+    opacity: 1;
+}
+
+/* Verkauft Status */
+.sold-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(253, 251, 247, 0.95);
+    padding: 4px 8px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #999;
+}
+
+.shop-card.sold .card-image {
+    opacity: 0.85;
+}
+
+/* --- Info Bereich unter Bild --- */
+.card-info {
+    padding: 15px 5px;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.details {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Kauf-Bereich */
+.buy-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.sold-price {
+    text-decoration: line-through;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.btn-shop {
+    padding: 8px 15px;
+    border: 1px solid var(--text-color);
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-shop:hover {
+    background: var(--text-color);
+    color: var(--white);
+}
+
+.btn-shop.disabled {
+    border-color: #eee;
+    color: #ccc;
+    cursor: default;
+}
+.btn-shop.disabled:hover { background: transparent; }
+
+
+/* --- MOBILE LAYOUT (2 Spalten Fix) --- */
+@media (max-width: 768px) {
+    
+    .shop-header h1 { font-size: 1.8rem; }
+
+    .shop-grid {
+        /* Erzwingt 2 Spalten auf dem Handy */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; /* Weniger Abstand zwischen den Bildern */
+    }
+
+    /* Anpassungen damit es in 2 Spalten passt: */
+    .card-info { padding: 10px 0; }
+    .card-info h3 { font-size: 0.9rem; margin-bottom: 2px; } /* Kleinerer Titel */
+    .details { font-size: 0.7rem; margin-bottom: 10px; }
+    
+    /* Preis & Button platzsparend anordnen */
+    .buy-block {
+        flex-direction: column; /* Untereinander statt nebeneinander */
+        align-items: flex-start;
+        gap: 8px;
+        padding-top: 10px;
+    }
+    
+    .btn-shop {
+        width: 100%; /* Button über die ganze Breite der kleinen Karte */
+        padding: 8px 0;
+        font-size: 0.7rem;
+    }
+}
+
+
+/* --- Lightbox Styles (Bleiben gleich) --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 251, 247, 0.98);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.lightbox.active { display: flex; opacity: 1; }
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    line-height: 1;
+}

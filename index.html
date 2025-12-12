@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART By Mel | Acrykunst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#hero">
+                <img src="assets/logos/logo.png" alt="Logo Art By Mel">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">Die Künstlerin</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text hidden">
+                <p class="subtitle">Acryl & Emotion</p>
+                <h1>Hi, ich bin Beyza.</h1>
+                <p class="bio">
+                    Kunst muss nicht laut sein um zu berühren, sondern eine Atmosphäre schaffen. 
+                    Meine Acrylbilder sind leise aber ausdrucksstarke Begleiter für dein Zuhause -
+                    Sanfte Farben, ehrliches Handwerk und ganz viel Liebe zum Detail – das ist Art Bey Mel.
+                </p>
+                <a href="#contact" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+            <div class="hero-image hidden delay-200">
+                <img src="assets/photos/portrait.jpg" alt="Mel Künstlerin Portrait">
+            </div>
+        </div>
+    </header>
+
+    <section id="gallery" class="gallery-section">
+        <div class="section-header hidden">
+            <h2>Ausgewählte Werke</h2>
+            <div class="separator"></div>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item hidden">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acrylgemälde Abstrakt Beige">
+                <div class="overlay">
+                    <h3>"Silent Morning"</h3>
+                </div>
+            </div>
+            <div class="gallery-item hidden delay-200">
+                <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acrylgemälde Struktur">
+                <div class="overlay">
+                    <h3>"Dusty Rose"</h3>
+                </div>
+            </div>
+            <div class="gallery-item hidden delay-400">
+                <img src="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acrylgemälde Detail">
+                <div class="overlay">
+                    <h3>"Golden Hour"</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-footer hidden">
+            <a href="galerie.html" class="btn btn-secondary">Zur gesamten Galerie</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container hidden">
+            <h2>Interesse an einem Werk?</h2>
+            <p>Schreib mir gerne für Auftragsarbeiten oder Fragen zu verfügbaren Bildern.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Dein Name" required>
+                <input type="email" placeholder="Deine E-Mail" required>
+                <textarea placeholder="Deine Nachricht an mich..." rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo footer-logo">
+                <span class="logo-serif">ART</span>
+                <span class="logo-script">By Mel</span>
+            </div>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+            </div>
+            <p class="copyright">&copy; 2025 Art By Mel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

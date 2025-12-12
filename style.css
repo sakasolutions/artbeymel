@@ -1,0 +1,427 @@
+/* --- Variablen & Reset --- */
+:root {
+    --bg-color: #ece9e3;      /* Sehr helles Creme */
+    --text-color: #333333;    /* Dunkles Grau statt hartes Schwarz */
+    --accent-color: #D4B5B0;  /* Muted Rose / Altrosa */
+    --secondary-bg: #F2EFE9;  /* Etwas dunkleres Beige für Sektionen */
+    --white: #ffffff;
+    --font-main: 'Montserrat', sans-serif;
+    --font-script: 'Pinyon Script', cursive; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* UPDATE: Etwas weniger Abstand, da die Leiste schmäler ist */
+    padding-top: 100px; 
+}
+
+/* --- Typografie & Buttons --- */
+h1 {
+    font-weight: 300;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-primary {
+    background-color: var(--text-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary {
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--white);
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    /* UPDATE: Weniger Padding oben/unten macht die Leiste schmäler */
+    padding: 5px 5%; 
+    background-color: var(--bg-color);
+    
+    /* FIXIERTE NAVI */
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+    height: auto; /* Stellt sicher, dass sie sich dem Inhalt anpasst */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0; /* Kein extra Padding mehr hier */
+    z-index: 1002; 
+}
+
+.logo img {
+    /* UPDATE: Minimal kleiner, damit die Leiste schlank bleibt */
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+/* DESKTOP LAYOUT (Zentrierte Navigation) */
+@media (min-width: 769px) {
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        /* Trick für absolute Mitte */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        list-style: none;
+        gap: 50px; 
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 0; 
+    }
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 20px 20px 0px var(--secondary-bg);
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+    padding: 100px 5%;
+    background-color: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.separator {
+    width: 50px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 20px auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 100px 5%;
+    background-color: var(--secondary-bg);
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    background: var(--white);
+    font-family: var(--font-main);
+    outline: none;
+    transition: border 0.3s;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+}
+
+/* --- Footer --- */
+footer {
+    padding: 50px 5%;
+    text-align: center;
+    background-color: var(--bg-color);
+    border-top: 1px solid #eee;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.socials a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.7rem;
+    color: #999;
+}
+
+/* --- Animation Classes --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-200 { transition-delay: 200ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Tablet & Mobile (unter 1024px) */
+@media (max-width: 1024px) {
+    h1 { font-size: 2.5rem; }
+    .hero-container { gap: 2rem; }
+}
+
+/* Mobile (unter 768px) */
+@media (max-width: 768px) {
+    
+    body { 
+        padding-top: 80px; /* Noch kompakter auf Mobile */
+        overflow-x: hidden; 
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 5%;
+    }
+
+    .logo img {
+        width: 75px; /* Kleiner für Mobile */
+    }
+    
+    .burger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        list-style: none; /* <--- WICHTIG: Das hier hat gefehlt! */
+        
+        position: absolute;
+        right: 0px;
+        left: auto;
+        transform: translateX(100%);
+        height: 100vh;
+        top: 0;
+        background-color: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transition: transform 0.5s ease-in-out;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 20px 0;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .hero-image {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .section-header { margin-bottom: 40px; }
+    
+    .gallery-section, 
+    .contact-section { 
+        padding: 60px 5%; 
+    }
+    
+    .hero-text {
+        padding: 0 10px;
+    }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
