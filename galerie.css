@@ -1,92 +1,85 @@
-/* --- Header & Container --- */
+/* --- ART BY MEL - GALERIE & SHOP STYLES --- */
+/* Diese Datei baut auf der style.css auf */
+
+/* --- 1. HEADER BEREICH --- */
 .shop-header {
-    padding: 60px 5% 30px 5%;
+    padding: 60px 5% 40px 5%;
     text-align: center;
-    background-color: var(--bg-color);
-}
-
-.shop-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-}
-
-.shop-container {
-    padding: 20px 5% 100px 5%;
     background-color: var(--white);
 }
 
-/* --- DESKTOP GRID (3 Spalten Standard) --- */
+.shop-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+/* --- 2. GRID LAYOUT --- */
+.shop-container {
+    padding: 0 5% 100px 5%;
+    background-color: var(--white);
+}
+
 .shop-grid {
     display: grid;
-    /* Desktop: Automatisch füllen, mindestens 300px breit pro Karte */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px; 
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* --- Die Shop Karte (mit High-End Animation) --- */
+/* --- 3. SHOP CARD --- */
 .shop-card {
     display: flex;
     flex-direction: column;
     background: var(--white);
-    
-    /* Startzustand für Animation: Unsichtbar & leicht verschoben */
+    position: relative;
     opacity: 0;
     transform: translateY(40px) scale(0.98); 
-    
-    /* Die Magie: Butterweiche Animation beim Laden */
-    animation: premiumEntrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation: premiumEntrance 1.0s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Definition der Bewegung */
 @keyframes premiumEntrance {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Automatisches Versetzen (Staggering) für den "Wellen-Effekt" */
 .shop-card:nth-child(1) { animation-delay: 0.1s; }
-.shop-card:nth-child(2) { animation-delay: 0.2s; }
-.shop-card:nth-child(3) { animation-delay: 0.3s; }
-.shop-card:nth-child(4) { animation-delay: 0.4s; }
-.shop-card:nth-child(5) { animation-delay: 0.5s; }
-.shop-card:nth-child(6) { animation-delay: 0.6s; }
-.shop-card:nth-child(7) { animation-delay: 0.7s; }
-.shop-card:nth-child(8) { animation-delay: 0.8s; }
+.shop-card:nth-child(2) { animation-delay: 0.15s; }
+.shop-card:nth-child(3) { animation-delay: 0.2s; }
+.shop-card:nth-child(4) { animation-delay: 0.25s; }
+.shop-card:nth-child(5) { animation-delay: 0.3s; }
+.shop-card:nth-child(6) { animation-delay: 0.35s; }
+.shop-card:nth-child(7) { animation-delay: 0.4s; }
+.shop-card:nth-child(8) { animation-delay: 0.45s; }
 
 
-/* --- Bildbereich --- */
+/* --- 4. BILD BEREICH --- */
 .card-image {
     position: relative;
     overflow: hidden;
-    cursor: zoom-in;
-    /* Erzwingt einheitliches Hochformat (4:5) */
-    aspect-ratio: 4 / 5; 
+    cursor: pointer;
     border-radius: 2px;
-    background-color: #f9f9f9; /* Platzhalterfarbe beim Laden */
+    background-color: #f4f4f4;
+    aspect-ratio: 4 / 5; 
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Füllt das Format perfekt aus */
-    transition: transform 0.7s ease; /* Langsamer Zoom beim Hover */
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    display: block;
 }
 
 .shop-card:hover .card-image img {
     transform: scale(1.03);
 }
 
-/* Hover Effekt (Plus-Zeichen) */
 .hover-indicator {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(255,255,255,0.2);
     display: flex;
     justify-content: center;
@@ -101,83 +94,95 @@
     font-weight: 300;
 }
 
-.shop-card:hover .hover-indicator {
-    opacity: 1;
-}
+.shop-card:hover .hover-indicator { opacity: 1; }
 
-/* Verkauft Status */
 .sold-overlay {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(253, 251, 247, 0.95);
-    padding: 4px 8px;
+    top: 15px; right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
     text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    font-weight: 600;
     color: #999;
+    z-index: 2;
 }
 
-.shop-card.sold .card-image {
-    opacity: 0.85;
+.shop-card.sold .card-image img {
+    opacity: 0.7;
+    filter: grayscale(20%);
 }
 
-/* --- Info Bereich unter Bild --- */
+
+/* --- 5. INFO & PREIS --- */
 .card-info {
-    padding: 15px 5px;
+    padding: 20px 0 10px 0;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .card-info h3 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--text-color);
 }
 
 .details {
     color: #888;
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-    font-style: italic;
+    font-size: 0.8rem;
+    font-style: normal;
+    margin-bottom: 10px;
 }
 
-/* Kauf-Bereich */
 .buy-block {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(0,0,0,0.05);
     padding-top: 15px;
+    margin-top: auto;
 }
 
 .price {
     font-weight: 600;
     font-size: 1rem;
+    color: var(--text-color);
 }
 
 .sold-price {
     text-decoration: line-through;
     color: #ccc;
     font-weight: 400;
+    font-size: 0.9rem;
 }
 
+
+/* --- 6. BUTTONS --- */
 .btn-shop {
-    padding: 8px 15px;
+    padding: 8px 20px;
     border: 1px solid var(--text-color);
     background: transparent;
+    color: var(--text-color);
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-shop:hover {
     background: var(--text-color);
     color: var(--white);
+    border-color: var(--text-color);
 }
 
 .btn-shop.disabled {
@@ -185,68 +190,137 @@
     color: #ccc;
     cursor: default;
 }
-.btn-shop.disabled:hover { background: transparent; }
-
-
-/* --- MOBILE LAYOUT (2 Spalten Fix) --- */
-@media (max-width: 768px) {
-    
-    .shop-header h1 { font-size: 1.8rem; }
-
-    .shop-grid {
-        /* Erzwingt 2 Spalten auf dem Handy */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px; /* Weniger Abstand zwischen den Bildern */
-    }
-
-    /* Anpassungen damit es in 2 Spalten passt: */
-    .card-info { padding: 10px 0; }
-    .card-info h3 { font-size: 0.9rem; margin-bottom: 2px; } /* Kleinerer Titel */
-    .details { font-size: 0.7rem; margin-bottom: 10px; }
-    
-    /* Preis & Button platzsparend anordnen */
-    .buy-block {
-        flex-direction: column; /* Untereinander statt nebeneinander */
-        align-items: flex-start;
-        gap: 8px;
-        padding-top: 10px;
-    }
-    
-    .btn-shop {
-        width: 100%; /* Button über die ganze Breite der kleinen Karte */
-        padding: 8px 0;
-        font-size: 0.7rem;
-    }
+.btn-shop.disabled:hover {
+    background: transparent;
+    color: #ccc;
 }
 
 
-/* --- Lightbox Styles (Bleiben gleich) --- */
+/* --- 7. COMMISSION CTA SECTION --- */
+.commission-cta {
+    background-color: var(--secondary-bg);
+    padding: 80px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.commission-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.commission-cta p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* --- 8. LIGHTBOX & NAV --- */
 .lightbox {
     display: none;
     position: fixed;
     z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
     background-color: rgba(253, 251, 247, 0.98);
     justify-content: center;
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+
 .lightbox.active { display: flex; opacity: 1; }
+
 .lightbox img {
     max-width: 90%;
     max-height: 80vh;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    border-radius: 2px;
 }
+
 .close-btn {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    font-size: 3rem;
+    top: 30px; right: 30px;
+    font-size: 2.5rem;
     color: var(--text-color);
     cursor: pointer;
-    line-height: 1;
+    transition: transform 0.3s;
+    z-index: 2003;
+}
+.close-btn:hover { transform: rotate(90deg); }
+
+/* Pfeil Buttons */
+.lb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    z-index: 2002;
+    opacity: 0.6;
+}
+
+.lb-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lb-prev { left: 10px; }
+.lb-next { right: 10px; }
+
+/* Bild-Zähler */
+.lb-counter {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+
+/* --- 9. MOBILE --- */
+@media (max-width: 768px) {
+    .shop-header { padding: 40px 5% 20px 5%; }
+    .shop-header h1 { font-size: 2rem; }
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+    }
+
+    .card-info h3 { font-size: 0.85rem; margin-bottom: 2px; }
+    .details { font-size: 0.7rem; margin-bottom: 8px; }
+    
+    .buy-block {
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px;
+    }
+    
+    .price { font-size: 0.9rem; }
+    .btn-shop { width: 100%; text-align: center; padding: 10px 0; }
+
+    /* CTA Mobile */
+    .commission-cta { padding: 60px 5%; }
+    .commission-cta h2 { font-size: 1.6rem; }
+
+    /* Lightbox Mobile */
+    .lb-arrow { font-size: 2rem; padding: 0 10px; }
 }

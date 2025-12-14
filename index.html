@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ART By Mel | Acrykunst</title>
+    <title>ARTBeyMel | Acrylkunst</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -67,7 +68,7 @@
                 </div>
             </div>
             <div class="gallery-item hidden delay-400">
-                <img src="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acrylgemälde Detail">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acrylgemälde Detail">
                 <div class="overlay">
                     <h3>"Golden Hour"</h3>
                 </div>
@@ -83,10 +84,27 @@
         <div class="contact-container hidden">
             <h2>Interesse an einem Werk?</h2>
             <p>Schreib mir gerne für Auftragsarbeiten oder Fragen zu verfügbaren Bildern.</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Dein Name" required>
-                <input type="email" placeholder="Deine E-Mail" required>
-                <textarea placeholder="Deine Nachricht an mich..." rows="5" required></textarea>
+            
+            <a href="https://wa.me/4917612345678" target="_blank" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Per WhatsApp schreiben
+            </a>
+        
+            <p style="margin: 20px 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Oder per E-Mail</p>
+        
+            <form class="contact-form" action="send_mail.php" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Dein Name" required>
+                <input type="email" name="email" placeholder="Deine E-Mail" required>
+                
+                <div class="file-upload-wrapper">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa-solid fa-paperclip"></i> Bild / Inspiration hochladen (Optional)
+                    </label>
+                    <input id="file-upload" type="file" name="attachment" accept="image/png, image/jpeg, image/jpg, application/pdf">
+                    <span id="file-chosen">Keine Datei ausgewählt</span>
+                </div>
+        
+                <textarea name="message" placeholder="Deine Nachricht an mich..." rows="5" required></textarea>
+                
                 <button type="submit" class="btn btn-primary">Nachricht senden</button>
             </form>
         </div>
@@ -94,15 +112,45 @@
 
     <footer>
         <div class="footer-content">
-            <div class="logo footer-logo">
-                <span class="logo-serif">ART</span>
-                <span class="logo-script">By Mel</span>
+            
+            <div class="footer-logo">
+                <a href="#hero">
+                    <img src="assets/logos/logo-footer.png" alt="Art By Mel Logo">
+                </a>
             </div>
-            <div class="socials">
-                <a href="#">Instagram</a>
-                <a href="#">Pinterest</a>
+    
+            <div class="footer-socials">
+                <a href="https://instagram.com/DEIN_PROFILE" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                
+                <a href="https://facebook.com/DEIN_PROFILE" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                
+                <a href="https://tiktok.com/@DEIN_PROFILE" target="_blank" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+    
+                <a href="https://pinterest.com/DEIN_PROFILE" target="_blank" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+                
+                <a href="mailto:kontakt@artbymel.de" aria-label="E-Mail">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
             </div>
-            <p class="copyright">&copy; 2025 Art By Mel. All Rights Reserved.</p>
+    
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="agb.html">AGB</a>
+            </div>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2025 Art By Mel. All Rights Reserved.</p>
+                <p class="credit">Webdesign by <a href="https://saka-it.de" target="_blank">SAKA Solutions</a></p>
+            </div>
         </div>
     </footer>
 

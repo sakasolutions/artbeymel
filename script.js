@@ -24,9 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            // Wenn es nur '#' ist, mache nichts (wird oft für Platzhalter genutzt)
+            if(targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement){
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -65,4 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+
+    // --- 4. DATEI UPLOAD NAME ANZEIGEN ---
+    // Dies sorgt dafür, dass "Keine Datei ausgewählt" sich in den Dateinamen ändert
+    const fileUploadBtn = document.getElementById('file-upload');
+    const fileChosenSpan = document.getElementById('file-chosen');
+
+    if (fileUploadBtn && fileChosenSpan) {
+        fileUploadBtn.addEventListener('change', function(){
+            // Wenn eine Datei gewählt wurde, Namen anzeigen, sonst Standardtext
+            if(this.files && this.files.length > 0) {
+                fileChosenSpan.textContent = this.files[0].name;
+            } else {
+                fileChosenSpan.textContent = "Keine Datei ausgewählt";
+            }
+        });
+    }
 });

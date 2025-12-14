@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="galerie.css">
@@ -41,10 +42,14 @@
         <div class="shop-grid">
             
             <div class="shop-card">
-                <div class="card-image" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Silent Morning"
-                         data-full="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                <div class="card-image" 
+                     onclick="openLightbox(this)"
+                     data-gallery="
+                        https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1600,
+                        https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=1600,
+                        https://images.unsplash.com/photo-1549887552-93f8efb871b8?w=1600
+                     ">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800" alt="Silent Morning">
                     <div class="hover-indicator"><span class="plus">+</span></div>
                 </div>
                 <div class="card-info">
@@ -59,9 +64,7 @@
 
             <div class="shop-card sold">
                 <div class="card-image" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Dusty Rose"
-                         data-full="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Dusty Rose">
                     <div class="sold-overlay">Verkauft</div>
                 </div>
                 <div class="card-info">
@@ -76,14 +79,12 @@
 
             <div class="shop-card">
                 <div class="card-image" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Golden Hour"
-                         data-full="https://images.unsplash.com/photo-1549887552-93f8efb871b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <img src="https://images.unsplash.com/photo-1549887552-93f8efb871b8?w=800" alt="Golden Hour">
                     <div class="hover-indicator"><span class="plus">+</span></div>
                 </div>
                 <div class="card-info">
                     <h3>Golden Hour</h3>
-                    <p class="details">100x120cm | Misch</p>
+                    <p class="details">100x120cm | Mischtechnik</p>
                     <div class="buy-block">
                         <span class="price">890 €</span>
                          <a href="#" class="btn-shop">Kaufen</a>
@@ -93,9 +94,7 @@
 
              <div class="shop-card">
                 <div class="card-image" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Ocean Breeze"
-                         data-full="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=800" alt="Ocean Breeze">
                     <div class="hover-indicator"><span class="plus">+</span></div>
                 </div>
                 <div class="card-info">
@@ -108,23 +107,66 @@
                 </div>
             </div>
 
-        </div> </section>
+        </div> 
+    </section>
+
+    <section class="commission-cta">
+        <div class="cta-content">
+            <h2>Dein Wunschbild nicht dabei?</h2>
+            <p>Ich fertige individuelle Kunstwerke an, die perfekt auf dein Zuhause und deine Farbwelt abgestimmt sind.</p>
+            <a href="index.html#contact" class="btn btn-primary">Unverbindlich anfragen</a>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-content">
-            <div class="logo footer-logo">
-                <img src="assets/logos/logo.png" alt="Logo Art By Mel" style="width: 80px; opacity: 0.7;">
+            <div class="footer-logo">
+                <a href="index.html">
+                    <img src="assets/logos/logo.png" alt="Art By Mel Logo">
+                </a>
             </div>
-            <div class="socials">
-                <a href="#">Instagram</a>
+    
+            <div class="footer-socials">
+                <a href="https://instagram.com/DEIN_PROFILE" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/DEIN_PROFILE" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://tiktok.com/@DEIN_PROFILE" target="_blank" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://pinterest.com/DEIN_PROFILE" target="_blank" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+                <a href="mailto:kontakt@artbymel.de" aria-label="E-Mail">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
             </div>
-            <p class="copyright">&copy; 2025 Art By Mel.</p>
+    
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="agb.html">AGB</a>
+            </div>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2025 Art By Mel. All Rights Reserved.</p>
+                <p class="credit">Webdesign by <a href="https://saka-it.de" target="_blank">SAKA Solutions</a></p>
+            </div>
         </div>
     </footer>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-btn">&times;</span>
+    <div id="lightbox" class="lightbox" onclick="if(event.target === this) closeLightbox()">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+        <button class="lb-arrow lb-prev" onclick="changeImage(-1)">&#10094;</button>
+        
         <img id="lightbox-img" src="">
+        
+        <button class="lb-arrow lb-next" onclick="changeImage(1)">&#10095;</button>
+        
+        <div id="lb-counter" class="lb-counter"></div>
     </div>
 
     <script src="galerie.js"></script>
