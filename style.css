@@ -32,6 +32,11 @@ body {
 }
 
 
+button, 
+.btn {
+    font-family: var(--font-main);
+}
+
 /* --- 2. TYPOGRAFIE & BUTTONS --- */
 h1 {
     font-weight: 300;
