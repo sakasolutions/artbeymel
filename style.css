@@ -580,9 +580,14 @@ footer {
     
     .section-header { margin-bottom: 40px; }
     
-    .gallery-section, 
+    .gallery-section { 
+        /* Oben 40px | Rechts/Links 5% | Unten 60px (damit Button höher rutscht) */
+        padding: 40px 5% 60px 5%; 
+    }
+    
+    /* 2. Kontakt: Soll eng bleiben (wie du vorhin wolltest) */
     .contact-section { 
-        padding: 40px 5% 15px 5%;
+        padding: 40px 5% 15px 5%; 
     }
     
     .hero-text {
