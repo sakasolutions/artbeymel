@@ -186,10 +186,29 @@ a {
 }
 
 .hero-image img {
+    /* 1. Größe & Positionierung (DESKTOP) */
     width: 100%;
+    max-width: 410px;
     height: auto;
-    border-radius: 2px;
-    box-shadow: 20px 20px 0px var(--secondary-bg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -80px;
+
+    /* Schiebt das Bild wie gewünscht 30px nach links */
+    transform: translateX(-40px);
+
+    /* 2. RECHTECKIGES WEICHZEICHNEN */
+    -webkit-mask-image: 
+        linear-gradient(to right, transparent 0%, black 10px, black calc(100% - 20px), transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 10px, black calc(100% - 20px), transparent 100%);
+
+    /* Dieser Befehl ist wichtig: Er sagt "Zeige das Bild nur dort, wo BEIDE Verläufe schwarz sind" */
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+
+    /* Optional: Ein leichter Schatten für mehr Tiefe */
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
 }
 
 
@@ -240,19 +259,15 @@ a {
     transform: scale(1.03); 
 }
 
-/* Der Titel-Balken (UPDATE: Immer sichtbar & edel) */
+/* Der Titel-Balken */
 .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    
-    /* Design: Zart und hell */
     background: rgba(253, 251, 247, 0.95); /* Fast deckendes Creme */
     padding: 12px 20px;
     border-top: 1px solid rgba(0,0,0,0.05);
-    
-    /* Fest sichtbar */
     opacity: 1;
     transform: translateY(0);
 }
@@ -260,16 +275,16 @@ a {
 /* Die Schriftgestaltung im Overlay */
 .overlay h3 {
     font-family: var(--font-main);
-    font-size: 0.85rem;   /* Klein und fein */
+    font-size: 0.85rem;   
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;  /* Sperren für edlen Look */
+    letter-spacing: 2px;  
     margin: 0;
     color: var(--text-color);
-    text-align: center;   /* Zentriert */
+    text-align: center;   
 }
 
-/* Button Container (Zentriert) */
+/* Button Container */
 .gallery-footer {
     text-align: center; 
     margin-top: 50px;
@@ -296,34 +311,29 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    background-color: transparent; 
+    border: 2px solid #25D366;     
+    color: #25D366;                
     
-    /* HIER IST DIE ÄNDERUNG: */
-    /* Alt: background-color: #25D366; */
-    background-color: transparent; /* Transparent statt Vollfarbe */
-    border: 2px solid #25D366;     /* Nur ein feiner grüner Rahmen */
-    color: #25D366;                /* Text und Icon in Grün */
-    
-    padding: 10px 25px; /* Etwas schlanker */
+    padding: 10px 25px; 
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.85rem;
     font-weight: 600;
     
-    /* WICHTIG: Mehr Luft nach oben! */
     margin-top: 25px; 
     margin-bottom: 15px;
     
     transition: all 0.3s ease;
-    box-shadow: none; /* Kein Schatten im Ruhezustand */
+    box-shadow: none; 
 }
 
-/* Hover-Effekt: Wird beim Drüberfahren zart ausgefüllt */
 .btn-whatsapp:hover {
     background-color: #25D366;
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); /* Ganz zarter Schatten */
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); 
 }
 
 .btn-whatsapp i {
@@ -361,12 +371,10 @@ a {
     gap: 15px;
 }
 
-/* Standard Input verstecken */
 input[type="file"] {
     display: none;
 }
 
-/* Custom Upload Button */
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -395,7 +403,7 @@ input[type="file"] {
 /* --- 7. FOOTER --- */
 footer {
     background-color: var(--secondary-bg);
-    padding: 40px 5% 20px 5%; /* Flacherer Footer wie gewünscht */
+    padding: 40px 5% 20px 5%; 
     text-align: center;
     border-top: 1px solid rgba(0,0,0,0.05);
     margin-top: auto;
@@ -409,7 +417,6 @@ footer {
     align-items: center;
 }
 
-/* Logo im Footer */
 .footer-logo img {
     width: 180px;
     height: auto;
@@ -419,14 +426,13 @@ footer {
 }
 .footer-logo img:hover { opacity: 1; }
 
-/* Social Icons */
 .footer-socials {
     margin-bottom: 40px;
     display: flex;
     gap: 25px;
 }
 .footer-socials a {
-    font-size: 1.8rem; /* Icons etwas größer gemacht */
+    font-size: 1.8rem; 
     color: var(--text-color);
     transition: all 0.3s ease;
     display: flex;
@@ -438,7 +444,6 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Rechtliche Links */
 .footer-legal {
     margin-bottom: 40px;
     display: flex;
@@ -455,7 +460,6 @@ footer {
 }
 .footer-legal a:hover { color: var(--text-color); }
 
-/* Copyright & Credit */
 .footer-bottom {
     border-top: 1px solid rgba(0,0,0,0.1);
     padding-top: 25px;
@@ -513,7 +517,7 @@ footer {
 @media (max-width: 768px) {
     
     body { 
-        padding-top: 80px; /* Kompakter auf Mobile */
+        padding-top: 80px; 
         overflow-x: hidden; 
     }
 
@@ -523,10 +527,9 @@ footer {
     }
 
     .logo img {
-        width: 75px; /* Kleiner für Mobile */
+        width: 75px; 
     }
     
-    /* Burger sichtbar machen */
     .burger {
         display: block;
         z-index: 1001;
@@ -534,7 +537,7 @@ footer {
 
     /* Mobile Menü Logik */
     .nav-links {
-        list-style: none; /* Keine Punkte */
+        list-style: none; 
         position: absolute;
         right: 0px;
         left: auto;
@@ -571,13 +574,26 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
         padding-top: 20px;
-        /* UPDATE: Mehr Luft unten, damit der Button nicht klebt */
         padding-bottom: 60px; 
     }
 
+    /* WICHTIGE MOBILE ANPASSUNG FÜR DAS BILD */
     .hero-image {
-        order: -1;
-        margin-bottom: 20px;
+        order: -1; /* Bild nach oben */
+    }
+
+    .hero-image img {
+        /* Reset der Desktop-Werte: */
+        margin-top: 20px;       /* Statt -80px: Positiver Abstand, damit es nicht klebt */
+        transform: none;        /* Statt -40px nach links: Zentriert (reset) */
+        
+        /* Design: */
+        max-width: 350px;       /* Passende Größe fürs Handy */
+        margin-bottom: 20px;    /* Abstand zum Text darunter */
+        
+        /* Sicherstellen, dass es mittig ist */
+        margin-left: auto;
+        margin-right: auto;
     }
     
     h1 { font-size: 2rem; }
@@ -586,11 +602,9 @@ footer {
     .section-header { margin-bottom: 40px; }
     
     .gallery-section { 
-        /* Oben 40px | Rechts/Links 5% | Unten 60px (damit Button höher rutscht) */
         padding: 40px 5% 60px 5%; 
     }
     
-    /* 2. Kontakt: Soll eng bleiben (wie du vorhin wolltest) */
     .contact-section { 
         padding: 40px 5% 15px 5%; 
     }
@@ -599,7 +613,6 @@ footer {
         padding: 0 10px;
     }
 
-    /* Footer auf Handy */
     footer { padding: 40px 5% 30px; }
     .footer-legal { flex-direction: column; gap: 15px; }
     .footer-logo img { width: 100px; }
