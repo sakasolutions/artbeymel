@@ -214,7 +214,7 @@
 /* --- 7. COMMISSION CTA SECTION --- */
 .commission-cta {
     background-color: var(--secondary-bg);
-    padding: 80px 5%;
+    padding: 50px 5% 80px 5%;
     text-align: center;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
